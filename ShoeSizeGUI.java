@@ -31,41 +31,42 @@ public class ShoeSizeGUI {
 
 		mainpanel.add(new JLabel("Shoe Size:"));
 		sizejtextfield = new JTextField(SHOESIZETEXTFIELDWIDTH);
-		sizejtextfield.setText(shoesize.show());
-		sizejtextfield.getDocument().addDocumentListener(
-				new DocumentListener() {
-					public void changedUpdate(DocumentEvent documentEvent) {
-						update();
-					}
+		if (shoesize != null) {
+			sizejtextfield.setText(shoesize.show());}
+			sizejtextfield.getDocument().addDocumentListener(
+					new DocumentListener() {
+						public void changedUpdate(DocumentEvent documentEvent) {
+							update();
+						}
 
-					public void insertUpdate(DocumentEvent documentEvent) {
-						update();
-					}
+						public void insertUpdate(DocumentEvent documentEvent) {
+							update();
+						}
 
-					public void removeUpdate(DocumentEvent documentEvent) {
-						update();
-					}
+						public void removeUpdate(DocumentEvent documentEvent) {
+							update();
+						}
 
-					private void update() {
-						try {
-							if (shoesize.set(Integer.parseInt(sizejtextfield
-									.getText()))) {
-								sizejtextfield.setBackground(Color.white);
-							} else {
+						private void update() {
+							try {
+								if (shoesize.set(Integer.parseInt(sizejtextfield
+										.getText()))) {
+									sizejtextfield.setBackground(Color.white);
+								} else {
+									sizejtextfield.setBackground(Color.red);
+								}
+
+							} catch (NumberFormatException nfe) {
+								shoesize.set(null);
 								sizejtextfield.setBackground(Color.red);
 							}
-
-						} catch (NumberFormatException nfe) {
-							shoesize.set(null);
-							sizejtextfield.setBackground(Color.red);
 						}
-					}
-				});
-		mainpanel.add(sizejtextfield);
-		jframe.getContentPane().add(mainpanel);
-		jframe.pack();
-		jframe.setVisible(true);
-	}
+					});
+			mainpanel.add(sizejtextfield);
+			jframe.getContentPane().add(mainpanel);
+			jframe.pack();
+			jframe.setVisible(true);
+		}
 
 	public static void main(String[] args) {
 		ShoeSizeGUI sc = new ShoeSizeGUI();
