@@ -11,8 +11,7 @@ public class ShoeSize {
     public static final int SHOESIZEMAX = 15;
     public static final int SHOESIZEMIN = 3;
     private static final int DEFAULTSIZE = 10;
-
-
+    
     static final String FILENAME = "shoesize.xml";
 
     private Integer shoesize;
