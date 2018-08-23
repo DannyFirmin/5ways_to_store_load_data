@@ -82,7 +82,8 @@ public class ShoeSize implements Serializable {
             db = dbf.newDocumentBuilder();
             Document doc = db.newDocument();
             Element size = doc.createElement("size");
-            size.appendChild(doc.createTextNode(Integer.toString(shoesize)));
+            if (shoesize!=null){
+            size.appendChild(doc.createTextNode(Integer.toString(shoesize)));}
             doc.appendChild(size);
 
             // save the xml file
