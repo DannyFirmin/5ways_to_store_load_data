@@ -68,9 +68,10 @@ public class ShoeSize {
             FileWriter f_writer = new FileWriter(FILENAME);
             BufferedWriter b_writer = new BufferedWriter(f_writer);
             System.out.println(shoesize);
+            if(shoesize != null){
             String info = shoesize.toString();
             b_writer.write(info);
-            b_writer.close();
+            b_writer.close();}
 
 
         } catch (IOException e) {
